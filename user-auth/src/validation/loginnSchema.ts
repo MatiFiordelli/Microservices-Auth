@@ -20,5 +20,6 @@ export const loginSchema = z.object({
         .min(2, {message: 'Name must be at least 2 characters long'})
         .max(50, {message: 'Name must be at most 50 characters long'})
         .regex(nameRegex, {message: 'Name must contain only letters'})
-        .refine(name=>name.trim()),
+        .refine(name=>name.trim())
+        .optional(),
 })
