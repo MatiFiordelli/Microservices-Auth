@@ -26,7 +26,7 @@ export const loginController = async (req: CustomRequest, res: Response, next: N
 
 		const SECRET = process.env.SECRET_FOR_TOKEN as string
 
-		const token = jwt.sign({ userId: user._id, email: user.email }, SECRET, { expiresIn: '7d' } )
+		const token = jwt.sign({ userId: user._id, email: user.email, name: user.name }, SECRET, { expiresIn: '7d' } )
 
 		res.status(200).json({ token: token, message: 'OK' })
 		

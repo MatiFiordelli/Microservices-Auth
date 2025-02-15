@@ -16,8 +16,15 @@ export const UserSchema = new Schema<IUser>({
         required: true,
         //match: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*+]).{8,16}$/,
         //maxlength: 16,
-        //minlength: 8
-        
+        //minlength: 8        
+    },
+    name: {
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true,
+        minlength: 2,
+        maxlength: 50
     }
 },{ 
     timestamps: true 

@@ -6,7 +6,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const signupController = async (req: CustomRequest, res: Response, next: NextFunction): Promise<void> => {
-    const {email, password} = req.body
+    const {email, password, name} = req.body
     
     try {
         const doesTheUserAlreadyExist = await User.findOne({ email })
@@ -21,7 +21,8 @@ export const signupController = async (req: CustomRequest, res: Response, next: 
 
         const newUser = new User({
             email: email,
-            password: hashedPassword
+            password: hashedPassword,
+            name: name
         })
 
         await newUser.save()
@@ -29,7 +30,7 @@ export const signupController = async (req: CustomRequest, res: Response, next: 
         const SECRET = process.env.SECRET_FOR_TOKEN as string
 
         const token = jwt.sign(
-            { userId: newUser._id, email: newUser.email },
+            { userId: newUser._id, email: newUser.email, name: newUser.name },
             SECRET,
             { expiresIn: '7d' }   
         )
