@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+const emailRegex = /[a-z0-9._%+]+@[a-z0-9.]+.[a-z]{2,4}$/
 const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*+]).{8,16}$/
 const nameRegex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]+(?: [A-Za-zÁÉÍÓÚáéíóúÑñ]+)*$/
 

@@ -20,7 +20,6 @@ export const UserSchema = new Schema<IUser>({
     },
     name: {
         type: String,
-        required: true,
         trim: true,
         lowercase: true,
         minlength: 2,
